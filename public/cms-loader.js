@@ -94,6 +94,56 @@
     container.appendChild(frag);
   }
 
+  /* Sections — nested list of {title, items:[...]} groups.
+   *
+   *   <div data-cms-sections="courses.sections">
+   *     <template data-cms-section>
+   *       <h2>{{title}}</h2>
+   *       <div class="row" data-cms-section-items></div>
+   *     </template>
+   *     <template data-cms-section-item>
+   *       <div class="col"><h5>{{code}}</h5><p>{{title}}</p></div>
+   *     </template>
+   *   </div>
+   */
+  function applySections(container, content) {
+    const path = container.getAttribute('data-cms-sections');
+    const arr = getPath(content, path);
+    if (!Array.isArray(arr)) return;
+    const sectionTpl = container.querySelector('template[data-cms-section]');
+    const itemTpl = container.querySelector('template[data-cms-section-item]');
+    if (!sectionTpl) return;
+    const sectionHtml = sectionTpl.innerHTML;
+    const itemHtml = itemTpl ? itemTpl.innerHTML : '';
+    // Remove all existing rendered children except the templates.
+    Array.prototype.slice.call(container.children).forEach(function (child) {
+      if (child !== sectionTpl && child !== itemTpl) container.removeChild(child);
+    });
+    const frag = document.createDocumentFragment();
+    arr.forEach(function (section, sIdx) {
+      const sectionFilled = fillTemplate(
+        sectionHtml,
+        Object.assign({ _index: sIdx }, section)
+      );
+      const wrapper = document.createElement('div');
+      wrapper.innerHTML = sectionFilled;
+      // Find the items slot inside the rendered section.
+      const slot = wrapper.querySelector('[data-cms-section-items]');
+      if (slot && itemHtml && Array.isArray(section.items)) {
+        let itemsRendered = '';
+        section.items.forEach(function (item, iIdx) {
+          itemsRendered += fillTemplate(
+            itemHtml,
+            Object.assign({ _index: iIdx }, item)
+          );
+        });
+        slot.innerHTML = itemsRendered;
+      }
+      while (wrapper.firstChild) frag.appendChild(wrapper.firstChild);
+    });
+    container.appendChild(frag);
+  }
+
   function derive(content) {
     // Synthesize convenience fields so admin only edits the raw values.
     content.contact = content.contact || {};
@@ -118,6 +168,9 @@
     });
     document.querySelectorAll('[data-cms-list]').forEach(function (el) {
       applyList(el, content);
+    });
+    document.querySelectorAll('[data-cms-sections]').forEach(function (el) {
+      applySections(el, content);
     });
   }
 

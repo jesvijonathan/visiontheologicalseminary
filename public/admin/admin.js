@@ -166,6 +166,213 @@
     });
   }
 
+  // ---------------- Section editors ----------------
+  // A section editor manages an array of { title, items: [...] } at `data-sections`.
+  // Admin can rename a section, reorder, delete, add new ones, and edit items inside.
+  function bindSections() {
+    $$('[data-sections]').forEach((container) => {
+      const path = container.dataset.sections;
+      const itemFields = JSON.parse(container.dataset.itemFields);
+      renderSections(container, path, itemFields);
+    });
+  }
+
+  function renderSections(container, path, itemFields) {
+    let arr = getPath(content, path);
+    if (!Array.isArray(arr)) {
+      setPath(content, path, []);
+      arr = getPath(content, path);
+    }
+    container.innerHTML = '';
+
+    arr.forEach((section, sIdx) => {
+      container.appendChild(renderSection(path, itemFields, section, sIdx,
+        () => renderSections(container, path, itemFields)));
+    });
+
+    const addBtn = document.createElement('button');
+    addBtn.type = 'button';
+    addBtn.className = 'add-btn add-section-btn';
+    addBtn.textContent = '+ Add section';
+    addBtn.addEventListener('click', () => {
+      const blank = { title: 'New section', items: [] };
+      arr.push(blank);
+      setDirty(true);
+      renderSections(container, path, itemFields);
+    });
+    container.appendChild(addBtn);
+  }
+
+  function renderSection(path, itemFields, section, sIdx, rerender) {
+    const wrap = document.createElement('div');
+    wrap.className = 'section-block';
+
+    // Section header: title input + section actions.
+    const head = document.createElement('div');
+    head.className = 'section-head';
+
+    const titleLbl = document.createElement('label');
+    titleLbl.className = 'section-title-label';
+    titleLbl.textContent = 'Section title';
+    const titleInput = document.createElement('input');
+    titleInput.type = 'text';
+    titleInput.value = section.title || '';
+    titleInput.placeholder = 'e.g. ATA Degrees';
+    titleInput.addEventListener('input', () => {
+      section.title = titleInput.value;
+      setDirty(true);
+    });
+    titleLbl.appendChild(titleInput);
+    head.appendChild(titleLbl);
+
+    const sActions = document.createElement('div');
+    sActions.className = 'section-actions';
+
+    const sUp = document.createElement('button');
+    sUp.type = 'button'; sUp.textContent = '↑ Section'; sUp.title = 'Move section up';
+    sUp.addEventListener('click', () => {
+      const arr = getPath(content, path);
+      if (sIdx === 0) return;
+      [arr[sIdx - 1], arr[sIdx]] = [arr[sIdx], arr[sIdx - 1]];
+      setDirty(true); rerender();
+    });
+
+    const sDown = document.createElement('button');
+    sDown.type = 'button'; sDown.textContent = '↓ Section'; sDown.title = 'Move section down';
+    sDown.addEventListener('click', () => {
+      const arr = getPath(content, path);
+      if (sIdx >= arr.length - 1) return;
+      [arr[sIdx + 1], arr[sIdx]] = [arr[sIdx], arr[sIdx + 1]];
+      setDirty(true); rerender();
+    });
+
+    const sDel = document.createElement('button');
+    sDel.type = 'button'; sDel.className = 'danger'; sDel.textContent = 'Delete section';
+    sDel.addEventListener('click', () => {
+      if (!confirm('Delete the entire "' + (section.title || 'untitled') + '" section?')) return;
+      const arr = getPath(content, path);
+      arr.splice(sIdx, 1);
+      setDirty(true); rerender();
+    });
+
+    sActions.appendChild(sUp);
+    sActions.appendChild(sDown);
+    sActions.appendChild(sDel);
+    head.appendChild(sActions);
+
+    wrap.appendChild(head);
+
+    // Items inside this section: reuse renderItem against the local items array.
+    if (!Array.isArray(section.items)) section.items = [];
+
+    const itemsWrap = document.createElement('div');
+    itemsWrap.className = 'list-items';
+    section.items.forEach((item, iIdx) => {
+      itemsWrap.appendChild(renderItemInSection(
+        path, sIdx, itemFields, item, iIdx,
+        () => rerender()
+      ));
+    });
+    wrap.appendChild(itemsWrap);
+
+    const addItem = document.createElement('button');
+    addItem.type = 'button';
+    addItem.className = 'add-btn';
+    addItem.textContent = '+ Add item to this section';
+    addItem.addEventListener('click', () => {
+      const blank = {};
+      itemFields.forEach((f) => { blank[f.key] = f.type === 'csv' ? [] : ''; });
+      section.items.push(blank);
+      setDirty(true); rerender();
+    });
+    wrap.appendChild(addItem);
+
+    return wrap;
+  }
+
+  // Variant of renderItem that targets section.items via (path, sIdx) lookup.
+  function renderItemInSection(path, sIdx, fields, item, idx, rerender) {
+    const wrap = document.createElement('div');
+    wrap.className = 'list-item';
+
+    fields.forEach((f) => {
+      const row = document.createElement('div');
+      row.className = 'row';
+      const lbl = document.createElement('label');
+      lbl.textContent = f.label;
+      row.appendChild(lbl);
+
+      const cell = document.createElement('div');
+      if (f.type === 'csv') {
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.value = Array.isArray(item[f.key]) ? item[f.key].join(', ') : '';
+        input.addEventListener('input', () => {
+          item[f.key] = input.value.split(',').map((s) => s.trim()).filter((s) => s.length);
+          setDirty(true);
+        });
+        cell.appendChild(input);
+      } else if (f.type === 'image') {
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.value = item[f.key] || '';
+        input.addEventListener('input', () => {
+          item[f.key] = input.value;
+          setDirty(true);
+        });
+        cell.appendChild(input);
+      } else {
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.value = item[f.key] == null ? '' : String(item[f.key]);
+        input.addEventListener('input', () => {
+          item[f.key] = input.value;
+          setDirty(true);
+        });
+        cell.appendChild(input);
+      }
+      row.appendChild(cell);
+      wrap.appendChild(row);
+    });
+
+    const actions = document.createElement('div');
+    actions.className = 'item-actions';
+
+    const upBtn = document.createElement('button');
+    upBtn.type = 'button'; upBtn.textContent = '↑'; upBtn.title = 'Move up';
+    upBtn.addEventListener('click', () => {
+      const items = getPath(content, path)[sIdx].items;
+      if (idx === 0) return;
+      [items[idx - 1], items[idx]] = [items[idx], items[idx - 1]];
+      setDirty(true); rerender();
+    });
+
+    const downBtn = document.createElement('button');
+    downBtn.type = 'button'; downBtn.textContent = '↓'; downBtn.title = 'Move down';
+    downBtn.addEventListener('click', () => {
+      const items = getPath(content, path)[sIdx].items;
+      if (idx >= items.length - 1) return;
+      [items[idx + 1], items[idx]] = [items[idx], items[idx + 1]];
+      setDirty(true); rerender();
+    });
+
+    const delBtn = document.createElement('button');
+    delBtn.type = 'button'; delBtn.className = 'danger'; delBtn.textContent = 'Delete';
+    delBtn.addEventListener('click', () => {
+      if (!confirm('Delete this item?')) return;
+      const items = getPath(content, path)[sIdx].items;
+      items.splice(idx, 1);
+      setDirty(true); rerender();
+    });
+
+    actions.appendChild(upBtn);
+    actions.appendChild(downBtn);
+    actions.appendChild(delBtn);
+    wrap.appendChild(actions);
+
+    return wrap;
+  }
+
   function renderList(container, path, fields) {
     const arr = getPath(content, path);
     if (!Array.isArray(arr)) {
@@ -367,6 +574,7 @@
     bindCurrentLinks();
     bindUploads();
     bindLists();
+    bindSections();
     setDirty(false);
   }
 

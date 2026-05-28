@@ -156,81 +156,28 @@
         <!-- Page Header End -->
 
         <!-- Service Start -->
-        <div class="container-xxl py-5">
-            <div class="container">
-                <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                    <!--<h6 class="section-title text-center text-primary text-uppercase">Our Services</h6>-->
-                    <h1 class="mb-5">Full Time <span class="text-primary text-uppercase">Faculty</span></h1>
-                </div>
-                <div class="row g-4" data-cms-list="faculty.fullTime">
-                    <template data-cms-item>
-                        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                            <a class="service-item rounded" href="Faculty.html">
-                                <h5 class="mb-3">{{name}}</h5>
-                                <p class="text-body mb-0">{{role}}</p>
-                            </a>
+        <div data-cms-sections="faculty.sections">
+            <template data-cms-section>
+                <div class="container-xxl py-5">
+                    <div class="container">
+                        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                            <h1 class="mb-5">{{title}} <span class="text-primary text-uppercase">Faculty</span></h1>
                         </div>
-                    </template>
+                        <div class="row g-4" data-cms-section-items></div>
+                    </div>
                 </div>
-            </div>
+            </template>
+            <template data-cms-section-item>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <a class="service-item rounded" href="Faculty.html">
+                        <h5 class="mb-3">{{name}}</h5>
+                        <p class="text-body mb-0">{{role}}</p>
+                    </a>
+                </div>
+            </template>
         </div>
+        <div style="padding-bottom: 100px;"></div>
         <!-- Service End -->
-        <div class="container-xxl py-5">
-            <div class="container">
-                <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                    <!--<h6 class="section-title text-center text-primary text-uppercase">Our Services</h6>-->
-                    <h1 class="mb-5">Part Time <span class="text-primary text-uppercase">Faculty</span></h1>
-                </div>
-                <div class="row g-4" data-cms-list="faculty.partTime">
-                    <template data-cms-item>
-                        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                            <a class="service-item rounded" href="Faculty.html">
-                                <h5 class="mb-3">{{name}}</h5>
-                                <p class="text-body mb-0">{{role}}</p>
-                            </a>
-                        </div>
-                    </template>
-                </div>
-            </div>
-        </div>
-
-        <div class="container-xxl py-5">
-            <div class="container">
-                <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                    <!--<h6 class="section-title text-center text-primary text-uppercase">Our Services</h6>-->
-                    <h1 class="mb-5">Visiting <span class="text-primary text-uppercase">Faculty</span></h1>
-                </div>
-                <div class="row g-4" data-cms-list="faculty.visiting">
-                    <template data-cms-item>
-                        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                            <a class="service-item rounded" href="Faculty.html">
-                                <h5 class="mb-3">{{name}}</h5>
-                                <p class="text-body mb-0">{{role}}</p>
-                            </a>
-                        </div>
-                    </template>
-                </div>
-            </div>
-        </div>
-
-        <div class="container-xxl py-5" >
-            <div class="container">
-                <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                    <!--<h6 class="section-title text-center text-primary text-uppercase">Our Services</h6>-->
-                    <h1 class="mb-5">Librarian <span class="text-primary text-uppercase"></span></h1>
-                </div>
-                <div class="row g-4" style="padding-bottom: 200px;" data-cms-list="faculty.librarian">
-                    <template data-cms-item>
-                        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                            <a class="service-item rounded" href="Faculty.html">
-                                <h5 class="mb-3">{{name}}</h5>
-                                <p class="text-body mb-0">{{role}}</p>
-                            </a>
-                        </div>
-                    </template>
-                </div>
-            </div>
-        </div>
         
 
                 <!-- Footer Start -->

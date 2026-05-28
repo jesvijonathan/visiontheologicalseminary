@@ -17,76 +17,116 @@
     "requiredPapers": "pdf/REQUIRED PAPERS FOR EACH COURSES.pdf"
   },
   "faculty": {
-    "fullTime": [
-      { "name": "Dr.G. David Raj Ph.D", "role": "Principal" },
-      { "name": "Rev.L.B. Maziha Dhas M.A., M.Div., M.Sc (Coun & Psy)., M.Th.", "role": "Vice Principal" },
-      { "name": "Rev.V.Veda Novin M.Th", "role": "Registrar" },
-      { "name": "Rev.J.John Joseph M.Div., M.Th.", "role": "Dean" },
-      { "name": "Eva. Ensalen. B", "role": "Chaplain" },
-      { "name": "Mrs. T. Mercy M.A., B.D., M.Min., M.Th.", "role": "Bursar" },
-      { "name": "Mrs.D.M. Clemency B.E., M.Div", "role": "" }
-    ],
-    "partTime": [
-      { "name": "Rev. T. Reji M.A., M.Th.", "role": "" },
-      { "name": "Rev. G. Jeba Sundar Singh M.A., M.Th.", "role": "" }
-    ],
-    "visiting": [
-      { "name": "Dr. Jayaraj Kunjunni Ph.D", "role": "" },
-      { "name": "Dr.A. Christhudas Ph.D", "role": "" },
-      { "name": "Dr.Reeju Tharakan Ph.D", "role": "" },
-      { "name": "Dr. P. Rajendra Babu Ph.D", "role": "" }
-    ],
-    "librarian": [
-      { "name": "Mrs. S.Mahiba Johncy Lib.Sc", "role": "Librarian" },
-      { "name": "Mr.A.R.Arul Theodore", "role": "Ass.Lib" }
+    "sections": [
+      {
+        "title": "Full Time",
+        "items": [
+          { "name": "Dr.G. David Raj Ph.D", "role": "Principal" },
+          { "name": "Rev.L.B. Maziha Dhas M.A., M.Div., M.Sc (Coun & Psy)., M.Th.", "role": "Vice Principal" },
+          { "name": "Rev.V.Veda Novin M.Th", "role": "Registrar" },
+          { "name": "Rev.J.John Joseph M.Div., M.Th.", "role": "Dean" },
+          { "name": "Eva. Ensalen. B", "role": "Chaplain" },
+          { "name": "Mrs. T. Mercy M.A., B.D., M.Min., M.Th.", "role": "Bursar" },
+          { "name": "Mrs.D.M. Clemency B.E., M.Div", "role": "" }
+        ]
+      },
+      {
+        "title": "Part Time",
+        "items": [
+          { "name": "Rev. T. Reji M.A., M.Th.", "role": "" },
+          { "name": "Rev. G. Jeba Sundar Singh M.A., M.Th.", "role": "" }
+        ]
+      },
+      {
+        "title": "Visiting",
+        "items": [
+          { "name": "Dr. Jayaraj Kunjunni Ph.D", "role": "" },
+          { "name": "Dr.A. Christhudas Ph.D", "role": "" },
+          { "name": "Dr.Reeju Tharakan Ph.D", "role": "" },
+          { "name": "Dr. P. Rajendra Babu Ph.D", "role": "" }
+        ]
+      },
+      {
+        "title": "Librarian",
+        "items": [
+          { "name": "Mrs. S.Mahiba Johncy Lib.Sc", "role": "Librarian" },
+          { "name": "Mr.A.R.Arul Theodore", "role": "Ass.Lib" }
+        ]
+      }
     ]
   },
   "courses": {
-    "ata": [
-      { "code": "M.Th", "title": "Master of Theology", "duration": "(2 Years)" },
-      { "code": "M.Div", "title": "Master of Divinity", "duration": "(4 Years)" },
-      { "code": "B.Th", "title": "Bachelor of Theology", "duration": "(4 Years)" }
-    ],
-    "nonAta": [
-      { "code": "STM", "title": "Master of Sacred Theology", "duration": "(2 Years)" },
-      { "code": "M.A (in theology)", "title": "Master of Arts in theology", "duration": "(1 Years)" },
-      { "code": "B.D", "title": "Bachelor of Divinity", "duration": "(2 Years)" },
-      { "code": "B.C.S", "title": "Bachelor of Christian Studies", "duration": "(3 Years)" }
+    "sections": [
+      {
+        "title": "Courses (ATA Degrees)",
+        "items": [
+          { "code": "M.Th", "title": "Master of Theology", "duration": "(2 Years)" },
+          { "code": "M.Div", "title": "Master of Divinity", "duration": "(4 Years)" },
+          { "code": "B.Th", "title": "Bachelor of Theology", "duration": "(4 Years)" }
+        ]
+      },
+      {
+        "title": "Courses (Non ATA Degrees)",
+        "items": [
+          { "code": "STM", "title": "Master of Sacred Theology", "duration": "(2 Years)" },
+          { "code": "M.A (in theology)", "title": "Master of Arts in theology", "duration": "(1 Years)" },
+          { "code": "B.D", "title": "Bachelor of Divinity", "duration": "(2 Years)" },
+          { "code": "B.C.S", "title": "Bachelor of Christian Studies", "duration": "(3 Years)" }
+        ]
+      }
     ]
   },
   "programmes": {
-    "ata": [
-      { "code": "M.Th", "title": "Master of Theology", "duration": "(2 Years)" },
-      { "code": "M.Div", "title": "Master of Divinity", "duration": "(3 Years)" },
-      { "code": "B.Th", "title": "Bachelor of Theology", "duration": "(3 Years)" }
-    ],
-    "nonAta": [
-      { "code": "STM", "title": "Master of Sacred Theology", "duration": "(2 Years)" },
-      { "code": "M.A (in theology)", "title": "Master of Arts in theology", "duration": "(1 Years)" },
-      { "code": "B.D", "title": "Bachelor of Divinity", "duration": "(2 Years)" },
-      { "code": "B.C.S", "title": "Bachelor of Christian Studies", "duration": "(3 Years)" }
+    "sections": [
+      {
+        "title": "Programmes (ATA Degrees)",
+        "items": [
+          { "code": "M.Th", "title": "Master of Theology", "duration": "(2 Years)" },
+          { "code": "M.Div", "title": "Master of Divinity", "duration": "(3 Years)" },
+          { "code": "B.Th", "title": "Bachelor of Theology", "duration": "(3 Years)" }
+        ]
+      },
+      {
+        "title": "Programmes (Non ATA Degrees)",
+        "items": [
+          { "code": "STM", "title": "Master of Sacred Theology", "duration": "(2 Years)" },
+          { "code": "M.A (in theology)", "title": "Master of Arts in theology", "duration": "(1 Years)" },
+          { "code": "B.D", "title": "Bachelor of Divinity", "duration": "(2 Years)" },
+          { "code": "B.C.S", "title": "Bachelor of Christian Studies", "duration": "(3 Years)" }
+        ]
+      }
     ]
   },
   "fees": {
-    "ata": [
-      { "code": "M.Th", "amount": "Rs.9000", "note": "(in two terms)" },
-      { "code": "M.Div", "amount": "Rs.6500", "note": "(in two terms)" },
-      { "code": "B.Th", "amount": "Rs.5000", "note": "(in two terms)" }
-    ],
-    "nonAta": [
-      { "code": "STM", "amount": "Rs.4000", "note": "(in two terms)" },
-      { "code": "M.A (in theology)", "amount": "Rs.3700", "note": "(in two terms)" },
-      { "code": "B.D", "amount": "Rs.3500", "note": "(in two terms)" },
-      { "code": "B.C.S", "amount": "Rs.3300", "note": "(in two terms)" }
+    "sections": [
+      {
+        "title": "Fees (ATA Degrees)",
+        "items": [
+          { "code": "M.Th", "amount": "Rs.9000", "note": "(in two terms)" },
+          { "code": "M.Div", "amount": "Rs.6500", "note": "(in two terms)" },
+          { "code": "B.Th", "amount": "Rs.5000", "note": "(in two terms)" }
+        ]
+      },
+      {
+        "title": "Fees (Non ATA Degrees)",
+        "items": [
+          { "code": "STM", "amount": "Rs.4000", "note": "(in two terms)" },
+          { "code": "M.A (in theology)", "amount": "Rs.3700", "note": "(in two terms)" },
+          { "code": "B.D", "amount": "Rs.3500", "note": "(in two terms)" },
+          { "code": "B.C.S", "amount": "Rs.3300", "note": "(in two terms)" }
+        ]
+      }
     ],
     "scheduleNote": "Schedule of Class and Mode of Fee Payment will be intimated to you before the commencement of each semester."
   },
   "grading": {
+    "evaluationTitle": "Evaluation Breakdown",
     "evaluation": [
       { "percent": "60%", "label": "Written Examination" },
       { "percent": "20%", "label": "Written Assignments" },
       { "percent": "20%", "label": "Internal Assessment" }
     ],
+    "classesTitle": "Class Tiers",
     "classes": [
       { "title": "First Class", "grades": ["A + (80% above)", "A (75 – 79)", "A- (70 – 74%)"] },
       { "title": "Second Class", "grades": ["B + (65 – 69%)", "B (60 – 64%)", "B- (55 – 59%)"] },

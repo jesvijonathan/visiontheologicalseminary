@@ -106,57 +106,33 @@
       <!-- COURSES -->
       <section class="panel hidden" data-tab-panel="courses">
         <h2>Courses</h2>
-        <h3>ATA Degrees</h3>
-        <div data-list="courses.ata"
-             data-fields='[{"key":"code","label":"Code","type":"text"},{"key":"title","label":"Title","type":"text"},{"key":"duration","label":"Duration","type":"text"}]'></div>
-
-        <h3>Non-ATA Degrees</h3>
-        <div data-list="courses.nonAta"
-             data-fields='[{"key":"code","label":"Code","type":"text"},{"key":"title","label":"Title","type":"text"},{"key":"duration","label":"Duration","type":"text"}]'></div>
+        <p class="muted">Each section becomes one heading on the Courses page. Rename, reorder, add new sections, or delete unused ones.</p>
+        <div data-sections="courses.sections"
+             data-item-fields='[{"key":"code","label":"Code","type":"text"},{"key":"title","label":"Title","type":"text"},{"key":"duration","label":"Duration","type":"text"}]'></div>
       </section>
 
       <!-- PROGRAMMES -->
       <section class="panel hidden" data-tab-panel="programmes">
         <h2>Programmes</h2>
-        <h3>ATA Degrees</h3>
-        <div data-list="programmes.ata"
-             data-fields='[{"key":"code","label":"Code","type":"text"},{"key":"title","label":"Title","type":"text"},{"key":"duration","label":"Duration","type":"text"}]'></div>
-
-        <h3>Non-ATA Degrees</h3>
-        <div data-list="programmes.nonAta"
-             data-fields='[{"key":"code","label":"Code","type":"text"},{"key":"title","label":"Title","type":"text"},{"key":"duration","label":"Duration","type":"text"}]'></div>
+        <p class="muted">Same shape as Courses. Edit Programmes page sections here.</p>
+        <div data-sections="programmes.sections"
+             data-item-fields='[{"key":"code","label":"Code","type":"text"},{"key":"title","label":"Title","type":"text"},{"key":"duration","label":"Duration","type":"text"}]'></div>
       </section>
 
       <!-- FACULTY -->
       <section class="panel hidden" data-tab-panel="faculty">
         <h2>Faculty</h2>
-        <h3>Full Time</h3>
-        <div data-list="faculty.fullTime"
-             data-fields='[{"key":"name","label":"Name","type":"text"},{"key":"role","label":"Role","type":"text"}]'></div>
-
-        <h3>Part Time</h3>
-        <div data-list="faculty.partTime"
-             data-fields='[{"key":"name","label":"Name","type":"text"},{"key":"role","label":"Role","type":"text"}]'></div>
-
-        <h3>Visiting</h3>
-        <div data-list="faculty.visiting"
-             data-fields='[{"key":"name","label":"Name","type":"text"},{"key":"role","label":"Role","type":"text"}]'></div>
-
-        <h3>Librarian</h3>
-        <div data-list="faculty.librarian"
-             data-fields='[{"key":"name","label":"Name","type":"text"},{"key":"role","label":"Role","type":"text"}]'></div>
+        <p class="muted">Each section becomes one block on the Faculty page (e.g. "Full Time", "Part Time", "Visiting").</p>
+        <div data-sections="faculty.sections"
+             data-item-fields='[{"key":"name","label":"Name","type":"text"},{"key":"role","label":"Role","type":"text"}]'></div>
       </section>
 
       <!-- FEES -->
       <section class="panel hidden" data-tab-panel="fees">
         <h2>Fee structures</h2>
-        <h3>ATA Degrees</h3>
-        <div data-list="fees.ata"
-             data-fields='[{"key":"code","label":"Programme","type":"text"},{"key":"amount","label":"Amount","type":"text"},{"key":"note","label":"Note","type":"text"}]'></div>
-
-        <h3>Non-ATA Degrees</h3>
-        <div data-list="fees.nonAta"
-             data-fields='[{"key":"code","label":"Programme","type":"text"},{"key":"amount","label":"Amount","type":"text"},{"key":"note","label":"Note","type":"text"}]'></div>
+        <p class="muted">Each section becomes one heading on the Fee Structures page.</p>
+        <div data-sections="fees.sections"
+             data-item-fields='[{"key":"code","label":"Programme","type":"text"},{"key":"amount","label":"Amount","type":"text"},{"key":"note","label":"Note","type":"text"}]'></div>
 
         <label>Schedule note
           <textarea data-field="fees.scheduleNote" rows="2"></textarea>
@@ -171,7 +147,7 @@
              data-fields='[{"key":"percent","label":"Percent","type":"text"},{"key":"label","label":"Label","type":"text"}]'></div>
 
         <h3>Class tiers</h3>
-        <p class="muted">Grades is a comma-separated list (e.g. <code>A (75 – 79), A- (70 – 74%)</code>).</p>
+        <p class="muted">Each tier is its own section — rename the title, add new tiers, or delete. Grades is a comma-separated list (e.g. <code>A (75 – 79), A- (70 – 74%)</code>).</p>
         <div data-list="grading.classes"
              data-fields='[{"key":"title","label":"Tier title","type":"text"},{"key":"grades","label":"Grades","type":"csv"}]'></div>
 

@@ -155,41 +155,30 @@
         <!-- Page Header End -->
 
 
-        <div class="container-xxl py-5" >
-            <div class="container">
-                <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                    <h1 class="mb-5">FEE STRUCTURES <span class="text-primary text-uppercase">(ATA Degrees)</span></h1>
-                </div>
-                <div class="row g-4" data-cms-list="fees.ata">
-                    <template data-cms-item>
-                        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                            <a class="service-item rounded" href="Fee&#32;Structures.html">
-                                <h5 class="mb-3">{{code}}</h5>
-                                <p class="text-body mb-0" style="padding-bottom: 10px;">{{amount}}</p>
-                                <p class="text-body mb-0" style="padding-bottom: 10px;">{{note}}</p>
-                            </a>
+        <div data-cms-sections="fees.sections">
+            <template data-cms-section>
+                <div class="container-xxl py-5">
+                    <div class="container">
+                        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                            <h1 class="mb-5"><span class="text-primary text-uppercase">{{title}}</span></h1>
                         </div>
-                    </template>
+                        <div class="row g-4" data-cms-section-items></div>
+                    </div>
                 </div>
-            </div>
+            </template>
+            <template data-cms-section-item>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <a class="service-item rounded" href="Fee&#32;Structures.html">
+                        <h5 class="mb-3">{{code}}</h5>
+                        <p class="text-body mb-0" style="padding-bottom: 10px;">{{amount}}</p>
+                        <p class="text-body mb-0" style="padding-bottom: 10px;">{{note}}</p>
+                    </a>
+                </div>
+            </template>
         </div>
 
-        <div class="container-xxl py-5" >
+        <div class="container-xxl">
             <div class="container">
-                <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                    <h1 class="mb-5">FEE STRUCTURES <span class="text-primary text-uppercase">(Non ATA Degrees)</span></h1>
-                </div>
-                <div class="row g-4" data-cms-list="fees.nonAta">
-                    <template data-cms-item>
-                        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                            <a class="service-item rounded" href="Fee&#32;Structures.html">
-                                <h5 class="mb-3">{{code}}</h5>
-                                <p class="text-body mb-0" style="padding-bottom: 10px;">{{amount}}</p>
-                                <p class="text-body mb-0" style="padding-bottom: 10px;">{{note}}</p>
-                            </a>
-                        </div>
-                    </template>
-                </div>
                 <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                     <p class="text-body mb-0" style="padding-bottom: 30px;" data-cms="text:fees.scheduleNote">Schedule of Class and Mode of Fee Payment will be intimated to you before the commencement of each semester.</p>
                 </div>
