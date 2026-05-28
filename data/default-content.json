@@ -1,0 +1,102 @@
+{
+  "contact": {
+    "phoneLandline": "04652-236024/04651-246024",
+    "mobile": "9865640100 / 9443102344",
+    "email": "davidrajvts@hotmail.com / davidrajvts@gmail.com",
+    "footerAddress": "Ayswarya Garden, Parvathipuram, Nagercoil-3, K.K.Dist, TN.",
+    "footerMobile": "9865640100 / 9443102344",
+    "footerEmail": "davidrajvts@hotmail.com",
+    "whatsappNumber": "+919865640100",
+    "primaryEmail": "davidrajvts@hotmail.com",
+    "primaryPhoneTel": "9443102344",
+    "mapEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.1142578619456!2d77.39507107419489!3d8.191244001541326!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b04f0b62db7a7d1%3A0xddf883073aa36925!2z4K614K6_4K634K6p4K-NIOCupOCuv-Cur-CuvuCusuCunOCuv-CuleCvjeCuleCusuCvjSDgrprgr4bgrq7grr_grqngrrDgrr8!5e0!3m2!1sta!2sin!4v1686567607666!5m2!1sta!2sin"
+  },
+  "pdfs": {
+    "applicationForm": "pdf/VTS Application Form.pdf",
+    "schedule": "pdf/courses.pdf",
+    "requiredPapers": "pdf/REQUIRED PAPERS FOR EACH COURSES.pdf"
+  },
+  "faculty": {
+    "fullTime": [
+      { "name": "Dr.G. David Raj Ph.D", "role": "Principal" },
+      { "name": "Rev.L.B. Maziha Dhas M.A., M.Div., M.Sc (Coun & Psy)., M.Th.", "role": "Vice Principal" },
+      { "name": "Rev.V.Veda Novin M.Th", "role": "Registrar" },
+      { "name": "Rev.J.John Joseph M.Div., M.Th.", "role": "Dean" },
+      { "name": "Eva. Ensalen. B", "role": "Chaplain" },
+      { "name": "Mrs. T. Mercy M.A., B.D., M.Min., M.Th.", "role": "Bursar" },
+      { "name": "Mrs.D.M. Clemency B.E., M.Div", "role": "" }
+    ],
+    "partTime": [
+      { "name": "Rev. T. Reji M.A., M.Th.", "role": "" },
+      { "name": "Rev. G. Jeba Sundar Singh M.A., M.Th.", "role": "" }
+    ],
+    "visiting": [
+      { "name": "Dr. Jayaraj Kunjunni Ph.D", "role": "" },
+      { "name": "Dr.A. Christhudas Ph.D", "role": "" },
+      { "name": "Dr.Reeju Tharakan Ph.D", "role": "" },
+      { "name": "Dr. P. Rajendra Babu Ph.D", "role": "" }
+    ],
+    "librarian": [
+      { "name": "Mrs. S.Mahiba Johncy Lib.Sc", "role": "Librarian" },
+      { "name": "Mr.A.R.Arul Theodore", "role": "Ass.Lib" }
+    ]
+  },
+  "courses": {
+    "ata": [
+      { "code": "M.Th", "title": "Master of Theology", "duration": "(2 Years)" },
+      { "code": "M.Div", "title": "Master of Divinity", "duration": "(4 Years)" },
+      { "code": "B.Th", "title": "Bachelor of Theology", "duration": "(4 Years)" }
+    ],
+    "nonAta": [
+      { "code": "STM", "title": "Master of Sacred Theology", "duration": "(2 Years)" },
+      { "code": "M.A (in theology)", "title": "Master of Arts in theology", "duration": "(1 Years)" },
+      { "code": "B.D", "title": "Bachelor of Divinity", "duration": "(2 Years)" },
+      { "code": "B.C.S", "title": "Bachelor of Christian Studies", "duration": "(3 Years)" }
+    ]
+  },
+  "programmes": {
+    "ata": [
+      { "code": "M.Th", "title": "Master of Theology", "duration": "(2 Years)" },
+      { "code": "M.Div", "title": "Master of Divinity", "duration": "(3 Years)" },
+      { "code": "B.Th", "title": "Bachelor of Theology", "duration": "(3 Years)" }
+    ],
+    "nonAta": [
+      { "code": "STM", "title": "Master of Sacred Theology", "duration": "(2 Years)" },
+      { "code": "M.A (in theology)", "title": "Master of Arts in theology", "duration": "(1 Years)" },
+      { "code": "B.D", "title": "Bachelor of Divinity", "duration": "(2 Years)" },
+      { "code": "B.C.S", "title": "Bachelor of Christian Studies", "duration": "(3 Years)" }
+    ]
+  },
+  "fees": {
+    "ata": [
+      { "code": "M.Th", "amount": "Rs.9000", "note": "(in two terms)" },
+      { "code": "M.Div", "amount": "Rs.6500", "note": "(in two terms)" },
+      { "code": "B.Th", "amount": "Rs.5000", "note": "(in two terms)" }
+    ],
+    "nonAta": [
+      { "code": "STM", "amount": "Rs.4000", "note": "(in two terms)" },
+      { "code": "M.A (in theology)", "amount": "Rs.3700", "note": "(in two terms)" },
+      { "code": "B.D", "amount": "Rs.3500", "note": "(in two terms)" },
+      { "code": "B.C.S", "amount": "Rs.3300", "note": "(in two terms)" }
+    ],
+    "scheduleNote": "Schedule of Class and Mode of Fee Payment will be intimated to you before the commencement of each semester."
+  },
+  "grading": {
+    "evaluation": [
+      { "percent": "60%", "label": "Written Examination" },
+      { "percent": "20%", "label": "Written Assignments" },
+      { "percent": "20%", "label": "Internal Assessment" }
+    ],
+    "classes": [
+      { "title": "First Class", "grades": ["A + (80% above)", "A (75 – 79)", "A- (70 – 74%)"] },
+      { "title": "Second Class", "grades": ["B + (65 – 69%)", "B (60 – 64%)", "B- (55 – 59%)"] },
+      { "title": "Third Class", "grades": ["C+ (50 – 54%)", "C (45 – 49%)", "C- (40 – 44%)"] }
+    ],
+    "failureNote": "Failure: 39% and below",
+    "passNote": "N.B: A minimum to get a pass is 40% in aggregate of each paper (8+8+24= 40)"
+  },
+  "gallery": [
+    { "image": "img/Graduation-2019 NGL.jpg", "title": "Graduation", "year": "2019", "tag": "NGL" },
+    { "image": "img/Graduation-2023 NGL.jpg", "title": "Graduation", "year": "2023", "tag": "NGL" }
+  ]
+}

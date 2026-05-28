@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>VTS Admin</title>
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <div id="login-view" class="login-view hidden">
+    <form id="login-form" class="login-card">
+      <h1>VTS Admin</h1>
+      <p class="muted">Sign in to manage site content.</p>
+      <label>
+        Password
+        <input type="password" name="password" id="login-password" autocomplete="current-password" required>
+      </label>
+      <button type="submit">Sign in</button>
+      <p id="login-error" class="error"></p>
+    </form>
+  </div>
+
+  <div id="app-view" class="app-view hidden">
+    <header class="topbar">
+      <div class="brand">VTS Admin</div>
+      <nav class="tabs" id="tabs">
+        <button data-tab="contact" class="active">Contact</button>
+        <button data-tab="pdfs">PDFs</button>
+        <button data-tab="courses">Courses</button>
+        <button data-tab="programmes">Programmes</button>
+        <button data-tab="faculty">Faculty</button>
+        <button data-tab="fees">Fees</button>
+        <button data-tab="grading">Grading</button>
+        <button data-tab="gallery">Gallery</button>
+      </nav>
+      <div class="actions">
+        <a href="/" target="_blank" rel="noopener">View site ↗</a>
+        <button id="save-btn" class="primary">Save changes</button>
+        <button id="logout-btn" class="ghost">Logout</button>
+      </div>
+    </header>
+
+    <div id="status-bar" class="status-bar hidden"></div>
+
+    <main class="container">
+      <!-- CONTACT -->
+      <section class="panel" data-tab-panel="contact">
+        <h2>Contact details</h2>
+        <p class="muted">Shown on the Contact page and in every footer.</p>
+        <div class="grid-2">
+          <label>Landline phone<input data-field="contact.phoneLandline"></label>
+          <label>Mobile numbers (contact page)<input data-field="contact.mobile"></label>
+          <label>Email line (contact page)<input data-field="contact.email"></label>
+          <label>Footer address<input data-field="contact.footerAddress"></label>
+          <label>Footer mobile<input data-field="contact.footerMobile"></label>
+          <label>Footer email<input data-field="contact.footerEmail"></label>
+          <label>WhatsApp number (with country code)<input data-field="contact.whatsappNumber"></label>
+          <label>Primary "mailto:" email<input data-field="contact.primaryEmail"></label>
+          <label>Primary "tel:" phone<input data-field="contact.primaryPhoneTel"></label>
+        </div>
+        <label>Google Maps embed URL
+          <textarea data-field="contact.mapEmbedUrl" rows="3"></textarea>
+        </label>
+      </section>
+
+      <!-- PDFS -->
+      <section class="panel hidden" data-tab-panel="pdfs">
+        <h2>Downloadable PDFs</h2>
+        <p class="muted">Upload a new PDF to replace the current one. The link in the public site updates automatically after Save.</p>
+
+        <div class="file-row">
+          <div>
+            <h3>Application form</h3>
+            <a class="current-link" data-link="pdfs.applicationForm" target="_blank" rel="noopener">Current file</a>
+          </div>
+          <div class="upload-cell">
+            <input type="file" accept="application/pdf" data-upload="pdfs.applicationForm">
+            <span class="upload-status"></span>
+          </div>
+        </div>
+
+        <div class="file-row">
+          <div>
+            <h3>Schedule (courses PDF)</h3>
+            <a class="current-link" data-link="pdfs.schedule" target="_blank" rel="noopener">Current file</a>
+          </div>
+          <div class="upload-cell">
+            <input type="file" accept="application/pdf" data-upload="pdfs.schedule">
+            <span class="upload-status"></span>
+          </div>
+        </div>
+
+        <div class="file-row">
+          <div>
+            <h3>Required papers for each course</h3>
+            <a class="current-link" data-link="pdfs.requiredPapers" target="_blank" rel="noopener">Current file</a>
+          </div>
+          <div class="upload-cell">
+            <input type="file" accept="application/pdf" data-upload="pdfs.requiredPapers">
+            <span class="upload-status"></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- COURSES -->
+      <section class="panel hidden" data-tab-panel="courses">
+        <h2>Courses</h2>
+        <h3>ATA Degrees</h3>
+        <div data-list="courses.ata"
+             data-fields='[{"key":"code","label":"Code","type":"text"},{"key":"title","label":"Title","type":"text"},{"key":"duration","label":"Duration","type":"text"}]'></div>
+
+        <h3>Non-ATA Degrees</h3>
+        <div data-list="courses.nonAta"
+             data-fields='[{"key":"code","label":"Code","type":"text"},{"key":"title","label":"Title","type":"text"},{"key":"duration","label":"Duration","type":"text"}]'></div>
+      </section>
+
+      <!-- PROGRAMMES -->
+      <section class="panel hidden" data-tab-panel="programmes">
+        <h2>Programmes</h2>
+        <h3>ATA Degrees</h3>
+        <div data-list="programmes.ata"
+             data-fields='[{"key":"code","label":"Code","type":"text"},{"key":"title","label":"Title","type":"text"},{"key":"duration","label":"Duration","type":"text"}]'></div>
+
+        <h3>Non-ATA Degrees</h3>
+        <div data-list="programmes.nonAta"
+             data-fields='[{"key":"code","label":"Code","type":"text"},{"key":"title","label":"Title","type":"text"},{"key":"duration","label":"Duration","type":"text"}]'></div>
+      </section>
+
+      <!-- FACULTY -->
+      <section class="panel hidden" data-tab-panel="faculty">
+        <h2>Faculty</h2>
+        <h3>Full Time</h3>
+        <div data-list="faculty.fullTime"
+             data-fields='[{"key":"name","label":"Name","type":"text"},{"key":"role","label":"Role","type":"text"}]'></div>
+
+        <h3>Part Time</h3>
+        <div data-list="faculty.partTime"
+             data-fields='[{"key":"name","label":"Name","type":"text"},{"key":"role","label":"Role","type":"text"}]'></div>
+
+        <h3>Visiting</h3>
+        <div data-list="faculty.visiting"
+             data-fields='[{"key":"name","label":"Name","type":"text"},{"key":"role","label":"Role","type":"text"}]'></div>
+
+        <h3>Librarian</h3>
+        <div data-list="faculty.librarian"
+             data-fields='[{"key":"name","label":"Name","type":"text"},{"key":"role","label":"Role","type":"text"}]'></div>
+      </section>
+
+      <!-- FEES -->
+      <section class="panel hidden" data-tab-panel="fees">
+        <h2>Fee structures</h2>
+        <h3>ATA Degrees</h3>
+        <div data-list="fees.ata"
+             data-fields='[{"key":"code","label":"Programme","type":"text"},{"key":"amount","label":"Amount","type":"text"},{"key":"note","label":"Note","type":"text"}]'></div>
+
+        <h3>Non-ATA Degrees</h3>
+        <div data-list="fees.nonAta"
+             data-fields='[{"key":"code","label":"Programme","type":"text"},{"key":"amount","label":"Amount","type":"text"},{"key":"note","label":"Note","type":"text"}]'></div>
+
+        <label>Schedule note
+          <textarea data-field="fees.scheduleNote" rows="2"></textarea>
+        </label>
+      </section>
+
+      <!-- GRADING -->
+      <section class="panel hidden" data-tab-panel="grading">
+        <h2>Grading system</h2>
+        <h3>Evaluation breakdown</h3>
+        <div data-list="grading.evaluation"
+             data-fields='[{"key":"percent","label":"Percent","type":"text"},{"key":"label","label":"Label","type":"text"}]'></div>
+
+        <h3>Class tiers</h3>
+        <p class="muted">Grades is a comma-separated list (e.g. <code>A (75 – 79), A- (70 – 74%)</code>).</p>
+        <div data-list="grading.classes"
+             data-fields='[{"key":"title","label":"Tier title","type":"text"},{"key":"grades","label":"Grades","type":"csv"}]'></div>
+
+        <label>Failure note<input data-field="grading.failureNote"></label>
+        <label>Pass note<textarea data-field="grading.passNote" rows="2"></textarea></label>
+      </section>
+
+      <!-- GALLERY -->
+      <section class="panel hidden" data-tab-panel="gallery">
+        <h2>Gallery</h2>
+        <p class="muted">Upload a new image to add a card; existing image fields can be edited inline. Use the "Replace image" button to upload over an item.</p>
+        <div data-list="gallery"
+             data-fields='[{"key":"image","label":"Image path/URL","type":"image"},{"key":"title","label":"Title","type":"text"},{"key":"year","label":"Year","type":"text"},{"key":"tag","label":"Tag","type":"text"}]'></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>
